@@ -18,14 +18,3 @@ class InventoryPage:
     def get_items_quantity(self) -> int:
         items_counter = self.page.locator("[data-test=\"shopping-cart-badge\"]").get_attribute()
         return items_counter
-
-
-
-
-
-
-        page.locator("[data-test=\"item-quantity\"]").click()
-        page.locator("[data-test=\"inventory-item\"]").click()
-        page.locator("[data-test=\"continue-shopping\"]").click(button="right")
-        page.locator("[data-test=\"checkout\"]").click(button="right")
-        page.locator("[data-test=\"cart-contents-container\"]").click(button="right")
