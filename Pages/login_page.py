@@ -2,6 +2,8 @@ from playwright.sync_api import Page
 
 class LoginPage:
 
+    log_in_page_url = "https://www.saucedemo.com/"
+
     def __init__(self, page: Page):
         self.page = page
         self.username_field = page.locator("[data-test=\"username\"]")
