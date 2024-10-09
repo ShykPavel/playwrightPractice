@@ -7,11 +7,11 @@ from Pages.login_page import LoginPage
 def logged_in_page(page):
     login_page = LoginPage(page)
     page.goto(login_page.log_in_page_url)
-    login_page.enter_username("standard_user")
-    login_page.enter_password("secret_sauce")
+    login_page.enter_username(login_page.valid_username)
+    login_page.enter_password(login_page.valid_password)
     login_page.login_button.click()
 
-    yield logged_in_page
+    yield page
 
 
 @pytest.fixture(scope="function")
