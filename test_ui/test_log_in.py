@@ -45,3 +45,10 @@ def test_general_error_message_contents(login_page):
     login_page.page.wait_for_load_state()
     expect(login_page.login_error_message, message="error message text doesn't match").to_have_text("Epic sadface: Username and password do not match any user in this service")
 
+def test_close_button_clears_error_state(login_page):
+    login_page.enter_username(login_page.valid_username)
+    login_page.enter_password(login_page.invalid_password)
+    login_page.login_button.click()
+    login_page.page.wait_for_load_state()
+    login_page.login_error_close_button.click()
+    expect(login_page.login_error_message, message="error state is visible").to_be_hidden()

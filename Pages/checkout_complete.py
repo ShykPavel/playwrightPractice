@@ -1,13 +1,10 @@
 from playwright.sync_api import Page
 
-class CheckoutInformation:
+class CheckoutComplete:
 
     def __init__(self, page: Page):
         self.page = page
-        self.first_name_field = page.locator("[data-test=\"firstName\"]")
-        self.last_name_field = page.locator("[data-test=\"lastName\"]")
-        self.postal_code_field = page.locator("[data-test=\"postalCode\"]")
-        self.continue_button = page.locator("[data-test=\"continue\"]")
-        self.cancel_button = page.locator("[data-test=\"cancel\"]")
-        self.error_message = page.locator("class=error-message-container error")
-        self.close_error_message_button = page.locator("[data-test=\"error-button\"]")
+        self.back_to_inventory_button = page.locator("[data-test=\"back-to-products\"]")
+        self.checkout_complete_image = page.locator("[data-test=\"pony-express\"]")
+        self.checkout_complete_header = page.locator("[data-test=\"complete-header\"]")
+        self.checkout_complete_text = page.locator("[data-test=\"complete-text\"]")

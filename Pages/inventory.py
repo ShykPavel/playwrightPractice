@@ -30,3 +30,6 @@ class InventoryPage:
         item = self.select_item_by_index(index)
         remove_from_cart_button = item.locator("[data-test=\"remove-sauce-labs-backpack\"]")
         remove_from_cart_button.click()
+
+    def get_item_name_by_index(self, index):
+        return self.page.locator(".inventory_item_name").nth(index).text_content()
