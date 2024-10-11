@@ -1,5 +1,8 @@
 import pytest
+
+from Pages.inventory import InventoryPage
 from Pages.login_page import LoginPage
+from Pages.cart import CartPage
 
 
 
@@ -14,9 +17,10 @@ def logged_in_page(page):
     yield page
 
 
-@pytest.fixture(scope="function")
-def login_page(page):
-    login_page = LoginPage(page)
-    page.goto(login_page.log_in_page_url)
+@pytest.fixture
+def cart_page(logged_in_page):
+    return CartPage(logged_in_page)
 
-    yield login_page
+@pytest.fixture
+def inventory_page(logged_in_page):
+    return InventoryPage(logged_in_page)
