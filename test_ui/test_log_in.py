@@ -1,4 +1,5 @@
 from playwright.sync_api import expect
+
 from Pages.inventory import InventoryPage
 
 
@@ -7,7 +8,6 @@ def test_valid_user_can_login(login_page):
     login_page.enter_username(login_page.valid_username)
     login_page.enter_password(login_page.valid_password)
     login_page.login_button.click()
-    login_page.page.wait_for_load_state()
     expect(inventory.inventory_items.first, message = "inventory is not visible after login").to_be_visible()
 
 def test_locked_user_can_not_login(login_page):

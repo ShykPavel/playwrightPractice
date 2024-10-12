@@ -56,7 +56,7 @@ def test_za_sorting_option(logged_in_page, inventory_page):
     item_inventory_names = []
     for i in range(inventory_page.inventory_items.count()):
         item_inventory_names.append(inventory_page.get_item_name_by_index(i))
-    assert item_inventory_names == sorted(item_inventory_names, reverse= True), "Items are not sorted from Z-A"
+    assert item_inventory_names == sorted(item_inventory_names, reverse = True), "Items are not sorted from Z-A"
 
 def test_price_ascending_sorting_option(logged_in_page, inventory_page):
     inventory_page.sorting_options_dropdown.select_option("lohi")
@@ -70,4 +70,4 @@ def test_price_descending_sorting_option(logged_in_page, inventory_page):
     item_inventory_prices = []
     for i in range(inventory_page.inventory_items.count()):
         item_inventory_prices.append(float(inventory_page.get_item_price_by_index(i).replace("$","")))
-    assert item_inventory_prices == sorted(item_inventory_prices, reverse= True), "Items are not sorted by price from high to low"
+    assert item_inventory_prices == sorted(item_inventory_prices, reverse = True), "Items are not sorted by price from high to low"
