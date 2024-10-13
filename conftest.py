@@ -6,10 +6,8 @@ from Pages.checkout_overview import CheckoutOverview
 from Pages.inventory import InventoryPage
 from Pages.login_page import LoginPage
 from Pages.cart import CartPage
-from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
 @pytest.fixture(scope="function")
 def login_page(page):
