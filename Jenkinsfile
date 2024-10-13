@@ -29,7 +29,7 @@ pipeline {
 
         stage('Publish Reports') {
             steps {
-            pytest --template=html1/index.html --report=report.html
+            sh 'pytest --template=html1/index.html --report=report.html'
             }
         }
     }
