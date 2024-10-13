@@ -3,12 +3,6 @@ from playwright.sync_api import Page
 class LoginPage:
 
     log_in_page_url = "https://www.saucedemo.com/"
-    valid_username = "standard_user"
-    locked_username = "locked_out_user"
-    invalid_username = "mistake"
-    valid_password = "secret_sauce"
-    invalid_password = "mistake"
-
 
     def __init__(self, page: Page):
         self.page = page

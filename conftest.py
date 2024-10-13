@@ -6,7 +6,10 @@ from Pages.checkout_overview import CheckoutOverview
 from Pages.inventory import InventoryPage
 from Pages.login_page import LoginPage
 from Pages.cart import CartPage
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 @pytest.fixture(scope="function")
 def login_page(page):
@@ -19,8 +22,8 @@ def login_page(page):
 def logged_in_page(page):
     login_page = LoginPage(page)
     page.goto(login_page.log_in_page_url)
-    login_page.enter_username(login_page.valid_username)
-    login_page.enter_password(login_page.valid_password)
+    login_page.enter_username(os.getenv("VALID_USERNAME"))
+    login_page.enter_password(os.getenv("VALID_PASSWORD"))
     login_page.login_button.click()
 
     yield page
@@ -45,3 +48,7 @@ def checkout_information(logged_in_page):
 @pytest.fixture
 def checkout_overview(logged_in_page):
     return CheckoutOverview(logged_in_page)
+
+@pytest.fixture
+def checkout_complete(logged_in_page):
+    return CheckoutComplete(logged_in_page)

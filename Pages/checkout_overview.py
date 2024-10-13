@@ -10,3 +10,6 @@ class CheckoutOverview:
         self.total_label = page.locator("[data-test=\"total-label\"]")
         self.finish_button = page.locator("[data-test=\"finish\"]")
         self.cancel_button = page.locator("[data-test=\"cancel\"]")
+
+    def get_item_name_by_index(self, index):
+        return str(self.page.locator(".inventory_item_name").nth(index).text_content())

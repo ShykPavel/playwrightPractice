@@ -10,13 +10,6 @@ class InventoryPage:
         self.menu_button = page.get_by_role("button", name="Open Menu")
         self.close_menu_button = page.get_by_role("button", name="Close Menu")
 
-    def menu_elements(self):
-        all_items = self.page.locator("[data-test=\"inventory-sidebar-link\"]")
-        about = self.page.locator("[data-test=\"about-sidebar-link\"]")
-        logout = self.page.locator("[data-test=\"logout-sidebar-link\"]")
-        reset_app_state = self.page.locator("[data-test=\"reset-sidebar-link\"]")
-
-        return all_items, about, logout, reset_app_state
 
     def select_item_by_index(self, index = int):
         return self.inventory_items.nth(index).first
